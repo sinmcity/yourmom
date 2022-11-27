@@ -1,0 +1,22 @@
+while true do
+    wait()
+    if showhitbox then
+        for i,v in next, game:GetService("Players"):GetPlayers() do
+            if v.Character and v ~= game:GetService("Players").LocalPlayer and not table.find(settings.whitelisted,v.Name) then
+                pcall(function()
+                    v.Character:WaitForChild("Head",.5).Size = Vector3.new(settings.size[1],settings.size[2],settings.size[3])
+                    v.Character:WaitForChild("Head",.5).Transparency = settings.parency
+                end)
+            end
+        end
+    else
+        for i,v in next, game:GetService("Players"):GetPlayers() do
+            if v.Character and v ~= game:GetService("Players").LocalPlayer then
+                pcall(function()
+                    v.Character:WaitForChild("Head",.5).Size = Vector3.new(1,1,1)
+                    v.Character:WaitForChild("Head",.5).Transparency = 0
+                end)
+            end
+        end
+    end
+end
